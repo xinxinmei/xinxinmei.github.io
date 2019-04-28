@@ -1,0 +1,11 @@
+计算机学报
+通信学报
+ACM computing surveys
+IEEE transactions on computers
+ACM transactions on design automation of electronic
+IEEE tansaction on very large scale intergration systems
+ACM tansaction on architecture and cod optimization 
+TVLSI
+TCAN 
+TC
+ CCF

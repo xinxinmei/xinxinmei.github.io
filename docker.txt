@@ -1,0 +1,50 @@
+安装docker：yum install docker
+search 搜索镜像： sudo docker search centos
+使用pull下载镜像： sudo docker pull ubuntu:latest   		docker pull <name>:<tags>
+					docker pull registry.docker-cn.com/library/ubuntu:latest
+					username/images_name  //可以指定用户的镜像
+查看本地镜像： sudo docker images
+run创建容器： sudo docker run -i -t --name hello ubuntu /bin/bash
+				docker run <options> <name> <exec_file>
+				i、t:可以在运行bash shell 中进行输入和输出
+				name: 指定容器的名字
+ps查看容器列表： sudo docker ps -a
+start/restart/stop 命令容器： sudo docker start contain_name
+attach连接容器： sudo docker attach contain_name        //ctrl+P ctrl+Q只退出不终止
+exec从外部运行容器内的命令： sudo docker exec contain_name echo "hello world"		
+rm删除容器： sudo docker rm contain_name
+rmi删除镜像： sudo docker rmi ubuntu:latest/ID
+				<images_name>:<tags>/ID
+				
+编写Dockerfile：
+使用build命令创建镜像：sudo docker build --tag hello:0.1 .
+						docker build <options> <Dockerfile _path> 
+						tag:指定images的名称于标签
+						
+运行镜像：sudo docker run  --name hello-nginx -d -p 80:80 -v /root/data:/data hello:0.1
+			-d:后台运行容器
+			-p 80：80：将主机的80端口和80端口连接起来。连接http://localhost:80 就会连接80端口
+			-v /root/data:/data :将主机的/root/data连接到容器的/data目录。
+			
+查看镜像：sudo docker history hello:0.1
+		docker history <name>:<tag>
+		
+cp复制文件： sudo docker cp hello-nginx:/etc/nginx/nginx.conf ./
+			docker cp <contain_name>:<path>  <host_path>
+			
+commit 将修改的容器创建为镜像：sudo docker commit -a "Foo Bar <foo@bar.com>"  -m "add hello.txt" hello-nginx hello:0.2
+							docker commit <options> <contain_name> <image_name>:<tag>
+							
+diff查看容器文件的修改： sudo docker diff hello-nginx
+inspect查看详细信息：docker inspect
+
+将镜像文件存储到主机的/tmp/registry:
+		sudo  docker run --name hello-registry -v /tmp/registry:/tmp/registry registry
+		
+push命令上传镜像：sudo docker tag hello:0.1 localhost:5000/hello:0.1
+					sudo docker push localhost:5000/hello:0.1
+					docker tag <images_name>:<tag> <docker registry url>/<image_name>:<tag>
+					docker push <Url>/<image_name>:<tag>
+从私有仓库下载：sudo docker pull localhost:5000/hello:0.1
+
+连接docker容器： docker run命令  --link <contain_name>:<别名>

@@ -1,0 +1,33 @@
+对二叉树按值查找结点，分析：
+首先采用先序遍历，**问题点在于当找到这个结点时如何保存和返回。**
+1.得明白，函数的核心是找到return结点，其他所有情况return空。
+2.递归的本质是不断调用身，在掉用自身的过程中如何保存返回值，可以定义一个指针保存return。但是如何保持该指针的值不会改变是个问题。
+if(!T){
+	return NULL;
+}
+if(T->DATA==X){
+	return T;
+}else{
+temp=find(T->Left);
+#################此处卡住了，不知如何去写。在遍历中是判断指针是否为空进行递归，并且在访问完Left后还需要访问Right。
+if(!temp){				//因为只有找到结点，才会不为空。
+	return find(T->Right);	//判断是否找到，决定是否改变temp值。
+}				
+return temp;			
+}			
+return NULL;
+
+
+总结：学会直接return find（T->Right）；这样可以直接返回整个函数的核心思想。即找到return 结点 否则NULL；这一步很关键。代码要围绕这核心写。
+如果一个函数中只存在一个递归调用，那么return 递归。就可得到函数的目的。对于树的遍历，含有两次递归调用。
+if(T){
+	if(T->DATA==X){
+		return T;
+	}else{
+		temp=find(T->Left);
+		if(!temp)
+			return find(T->Right);	
+	}				
+	return temp;					
+}
+return NULL
