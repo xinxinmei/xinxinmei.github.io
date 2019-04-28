@@ -1,0 +1,10 @@
+git checkout -b experimental
+git add --all
+git commit -m ""
+git checkout master
+git merge experimental --squash				//--squash,将所有提交并入一个提交
+git commit
+git branch --delete experimental			//删除一个为merge的分支使用  -D 
+git pull --rebase=preserve remote_nckname master     //当本地仓库拥有多个远程链接使，后面的参数会起到一定的作用，一般可以省略
+
+
