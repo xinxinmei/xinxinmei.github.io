@@ -1,0 +1,276 @@
+
+配置密码和登录
+############################################################################
+Router>enable
+Router#configure
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#enable password 123			路由器的enable密码配置
+Router(config)#line console 0				console密码配置
+Router(config-line)#password 1234
+Router(config-line)#login			
+Router(config)#line vty 0 4			终端登录密码配置，0和4代表允许5个终端连接，并行最多16个
+Router(config-line)#password 12345
+Router(config-line)#login			开启远程登录
+
+
+
+
+
+Router>enable						用户模式
+Router#configure					特权模式 、全局配置模式
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface FastEthernet0/0			端口模式
+Router(config-if)#ip address 192.168.0.2 255.255.255.0
+Router(config-if)#
+
+
+常用命令
+Router(config)#interface FastEthernet0/0			开启或关闭端口
+Router(config-if)#shutdown
+Router(config)#interface FastEthernet0/0
+Router(config-if)#no shutdown
+
+
+Router#show running-config					显示配置信息
+
+
+username 	配置用户名
+hostname	配置设备名
+login local  	开启本地验证（需要用户名，login只要密码）
+interface 	配置端口
+configure	进入全局配置
+enable		进入特权模式
+shutdown  	关闭
+no shutdown	开启
+enable password 特权模式密码
+password 	设置密码
+
+
+
+
+
+###############################################################################
+跨交换机实现vlan
+###############################################################################
+
+Switch>enabl
+Switch#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 2
+Switch(config-vlan)#exit
+Switch(config)#int f0/2
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 2
+Switch(config-if)#exit
+Switch(config)#vlan 3
+Switch(config-vlan)#exi
+Switch(config)#int f0/3
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 3
+Switch(config-if)#exit
+Switch(config)#int f0/1
+Switch(config-if)#switchpor mode trunk
+Switch(config-if)#switchport trunk encap dot1q
+                                   ^
+% Invalid input detected at '^' marker.        //该型号 的交换机默认配置的是802.1Q封装，不允许配置
+
+
+
+###############################################################################
+单臂路由实现VLAN间路由
+###############################################################################
+
+
+配置交换机如上配置，注意配置与交换机链接的端口为trunk模式，两端配置一端即可
+主机配置注意配置网关
+
+路由器配置：
+Router>enabl
+Router#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int f0/0.1
+Router(config-subif)#encapture dot1q
+                          ^
+% Invalid input detected at '^' marker.
+	
+Router(config-subif)#ip address 192.168.2.1 255.255.255.0
+
+% Configuring IP routing on a LAN subinterface is only allowed if that
+subinterface is already configured as part of an IEEE 802.10, IEEE 802.1Q,
+or ISL vLAN.
+
+Router(config-subif)#exit
+Router(config)#int f0/0.2
+Router(config-subif)#encapture dot1q  						//问题同上
+                          ^
+% Invalid input detected at '^' marker.
+	
+Router(config-subif)#ip address 192.168.3.1 255.255.255.0
+
+% Configuring IP routing on a LAN subinterface is only allowed if that
+subinterface is already configured as part of an IEEE 802.10, IEEE 802.1Q,
+or ISL vLAN.
+
+Router(config-subif)#int f0/0
+Router(config-if)#no shutdown
+
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+%LINK-5-CHANGED: Interface FastEthernet0/0.1, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0.1, changed state to up
+%LINK-5-CHANGED: Interface FastEthernet0/0.2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0.2, changed state to upRouter(config-if)#
+	
+
+###############################################################################
+04三层交换机实现VLAN间路由
+###############################################################################
+交换机和主机同上配置
+设计路由功能时候网关需要注意填写，不然报文找不到出口。
+三层交换机配置：
+
+Switch>enabl
+Switch#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 2
+Switch(config-vlan)#exit
+Switch(config)#vlan 3
+Switch(config-vlan)#exit
+Switch(config)#int f0/1
+Switch(config-if)#switchport mode trunk
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+Switch(config-if)#switchport trunk encap dot1q
+                                   ^
+% Invalid input detected at '^' marker.
+	
+Switch(config-if)#int vlan 2
+
+%LINK-5-CHANGED: Interface Vlan2, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan2, changed state to upSwitch(config-if)#ip address 192.168.2.1 255.255.255.0
+Switch(config-if)#no shutdown
+Switch(config-if)#exit
+Switch(config)#int vlan 3
+
+%LINK-5-CHANGED: Interface Vlan3, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan3, changed state to upSwitch(config-if)#ip address 192.168.3.1 255.255.255.0
+Switch(config-if)#no shutdown
+
+	
+Switch(config-if)#exit
+Switch(config)#ip routing				//激活IP路由（开启三层交换机）
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+Switch#wr
+Building configuration...
+[OK]
+Switch#
+
+
+
+
+###############################################################################
+05静态路由配置
+###############################################################################
+
+路由器配置：
+Router>enable
+Router#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int serial0/0/1					//路由间链接采用串口，需要设定时钟频率。链接的路由器都得设置
+Router(config-if)#ip address 192.168.2.1 255.255.255.0
+Router(config-if)#clock rate 64000
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+Router(config-if)#exit
+Router(config)#ip route 192.168.3.0 255.255.255.0 192.168.2.2
+Router#show ip route
+
+
+###############################################################################
+06RIP路由协议配置
+###############################################################################
+
+
+Router(config)#router rip
+Router(config-router)#network 192.168.1.0				//通告所有直接相连的的网络
+Router(config-router)#exit
+
+Router#debug ip rip
+RIP protocol debugging is on
+Router#RIP: sending  v1 update to 255.255.255.255 via FastEthernet0/0 (192.168.0.1)
+RIP: build update entries
+      network 192.168.1.0 metric 2
+      network 192.168.2.0 metric 3
+      network 192.168.3.0 metric 1
+      network 192.168.4.0 metric 2
+RIP: sending  v1 update to 255.255.255.255 via Serial0/3/0 (192.168.3.2)
+RIP: build update entries
+      network 192.168.0.0 metric 1
+RIP: received v1 update from 192.168.3.3 on Serial0/3/0
+      192.168.1.0 in 1 hops
+      192.168.2.0 in 2 hops
+      192.168.4.0 in 1 hops
+RIP: sending  v1 update to 255.255.255.255 via FastEthernet0/0 (192.168.0.1)
+RIP: build update entries
+      network 192.168.1.0 metric 2
+      network 192.168.2.0 metric 3
+      network 192.168.3.0 metric 1
+      network 192.168.4.0 metric 2
+RIP: sending  v1 update to 255.255.255.255 via Serial0/3/0 (192.168.3.2)
+RIP: build update entries
+      network 192.168.0.0 metric 1
+RIP: received v1 update from 192.168.3.3 on Serial0/3/0
+      192.168.1.0 in 1 hops
+      192.168.2.0 in 2 hops
+      192.168.4.0 in 1 hops
+RIP: sending  v1 update to 255.255.255.255 via FastEthernet0/0 (192.168.0.1)
+RIP: build update entries
+      network 192.168.1.0 metric 2
+      network 192.168.2.0 metric 3
+      network 192.168.3.0 metric 1
+      network 192.168.4.0 metric 2
+RIP: sending  v1 update to 255.255.255.255 via Serial0/3/0 (192.168.3.2)
+RIP: build update entries
+      network 192.168.0.0 metric 1
+RIP: received v1 update from 192.168.3.3 on Serial0/3/0
+      192.168.1.0 in 1 hops
+      192.168.2.0 in 2 hops
+      192.168.4.0 in 1 hops
+RIP: sending  v1 update to 255.255.255.255 via FastEthernet0/0 (192.168.0.1)
+RIP: build update entries
+      network 192.168.1.0 metric 2
+      network 192.168.2.0 metric 3
+      network 192.168.3.0 metric 1
+      network 192.168.4.0 metric 2
+RIP: sending  v1 update to 255.255.255.255 via Serial0/3/0 (192.168.3.2)
+RIP: build update entries
+      network 192.168.0.0 metric 1
+
+###############################################################################
+07OSPF路由协议配置
+###############################################################################
+
+
+
+###############################################################################
+08NAT配置
+###############################################################################
+
+
+
+###############################################################################
+09ACL配置
+###############################################################################
+
