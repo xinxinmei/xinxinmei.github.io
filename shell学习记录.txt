@@ -84,38 +84,190 @@ bash中预设的环境变量：$BASH $BASH_VERSION $CDPATH $EUID  $FUNCNAME $HIS
 		unset array[1]
 		unset array
 		
-只读变量：
+只读变量：readonly ro=100
+
+变量作用域：不同进程的id的shell默认为一个不同命名空间。
+函数内对变量也是可以访问的。
+在函数可以使用local 声明局部变量
+
+引用：双引号里的内容特殊字符会被解析，单引号内不会
+
+命令替换：怎样将命令的输出结果赋值给变量，`命令` $(命令)
+			date_1=`date`
 		
 ############################################################
-变量
+if/else
 ############################################################
+if expression; then
+		command
+fi
 
+if expression; then	
+		command
+else 
+		command
+fi
+
+if expression1; then
+		command
+elif expression2; then
+		command
+elif expression3; then
+		command
+.....
+fi
+		
+############################################################
+case
+############################################################
+case var in
+var1) command ;;
+var2) command ;;
+var3) command ;;
+...
+*)    command ;;
+esac
+
+var1只能是正则表达式或变量
+
+############################################################
+循环
+############################################################
+for variable in (list)
+do
+	command
+done
+for var in $(seq 1 100)
+
+不带列表的for
+for variable
+do 
+	command
+done
+通过调用shell传入参数，但是可读性太差可以使用以下方式代替
+for variable in $@			接受参数
+
+类c的for
+ for ((expression 1; expression 2;expression3))
+ do
+	command 
+done
+
+
+while 循环
+
+while expression
+do
+	command
+done
+
+while read LINE
+do
+	name=`echo $LINE | awk '{print $1}'`
+	echo "$name"
+done < student_info.txt
+
+cat student_info.txt | while read LINE
+do
+	name=`echo $LINE | awk '{print $1}'`
+done
+
+
+until循环
+until expression				//直到expression为真时停止
+do
+	command
+done
+
+select循环
+select menu in (list)
+do
+	command
+done
 
 
 ############################################################
-变量
+函数
 ############################################################
+function name(){
+	command
+	command
+	....
+}
+name(){
+	command
+	command
+	...
+}
+函数调用直接 name
 
 
+自定义函数库
+./PATH/TO/LIB
+source /PATH/TO/LIB
 
 
 ############################################################
-变量
+测试
 ############################################################
+测试结构：test expression
+			[expression]
+文件测试：
+test file_operator file
+[file_operator file]
+file_operator是文件测试符，file是文件、目录
 
+b:当文件存在且是个块文件
+c:当文件存在且是个字符设备
 
+d:当文件存在且是个目录
+e:当文件或目录存在
 
-############################################################
-变量
-############################################################
+f:当文件存在且为普通文件
+x:当文件存在且为可执行
+w:当文件存在且为可写文件
+r:当文件存在且为可读文件
 
+l:当文件存在且为连接文件
+p:当文件存在且为管道文件
 
+s:当文件存在且大小不为0
+S:当文件存在且为socket文件
 
+g:当文件存在且是指SGID
+u:当文件存在且设置SUID
+k:文件存在且设置sticky属性
 
-############################################################
-变量
-############################################################
+G:文件存在且属于有效的用户组
+O:文件存在且属于有效用户
 
+file1 -nt file2:1比2新则true
+file2 -ot file2:1比2旧则true
+
+字符串测试：
+z:为空
+n:非空
+=:
+!=:
+>:
+<:
+
+整数比较：
+eq：等于
+gt:大于
+lt:小于
+ge:大于等于
+le:小于等于
+ne:不等于
+
+逻辑测试符号和运算符：
+！expression:expression为真，则结果为假
+expression -a  expression:同时为真则为真
+-o:一个为真则结果为真
+
+!:取反
+&&:与
+||:或
 
 
 
