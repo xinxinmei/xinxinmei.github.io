@@ -11,15 +11,38 @@ echo "this is a sample text 1" > temp.txt 		覆盖原内容
 echo "this is a sample text 2" >> temp.txt		文件尾追加
 >等于1> ;>>等于1>>
 ls + 2> out.txt 				错误打印到out.txt
-ls + 2> stderr.txt 1>stdout.txt  
-ls + 2>&1 output.txt
-ls + &> output.txt
+ls + 2> stderr.txt 1>stdout.txt  		错误打印到stderr.txt 正确打印到stdout.txt
+ls + &> output.txt						error和结果都存入output.txt
 
 cat a* | tee out.txt | cat -n
 echo "a" | tee -     				将stdin作为参数，-代表参数
 
 
-
+自定义文件描述符：
+只读模式
+截断模式
+追加模式
+	 <  操作符用于从文件中读取值stdin，>  操作符用于截断模式的文件写入，>> 操作符用于追加模式的文件写入。
+	 
+	 echo this is test >input.txt
+	 exec 3<input.txt
+	 cat <&3
+	 
+	 exec 4>output.txt
+	 echo newline >&4
+	 cat output.txt
+	 
+	 exec 5>>input.txt
+	 echo appended line >&5}
+	 cat input.txt
+	 
+	 
+使用别名：
+	别名类似于快捷方式，省却输入一串命令的时间
+	alias new_command='command sequence'
+	eg: alias install='sudo apt-get install'
+	放入~/.bashrc 文件中
+	echo 'alias cmd="cmd seq"' >>~/.bashrc
 ############################################################
 变量
 ############################################################
@@ -36,7 +59,7 @@ bash中预设的环境变量：$BASH $BASH_VERSION $CDPATH $EUID  $FUNCNAME $HIS
 
 变量赋值和取值： 变量名=变量值 ，没有空格，当变量中有空格是需要使用引号括起来（单双都行）
 
-取值变量前加上$,严谨的方法是${},如果变量引用的别的变量的值需要使用双引号括起来，不能使用单引号（单引号会阻止shell解释特殊字符）
+取值变量前加上$,严谨的方法是${},如果变量引用的别的变量的值(a="$b")需要使用双引号括起来，不能使用单引号（单引号会阻止shell解释特殊字符）
 
 虽说shell是弱类型变量，但是应该遵守先申明后使用，规范不容易出错
 设置shell：shopt -s -o nounset
@@ -272,8 +295,12 @@ expression -a  expression:同时为真则为真
 
 
 ############################################################
-变量
+随笔记录
 ############################################################
+IFS(internal field separator)，存储定界符的环境变量，处理csv文件设置IFS=","
+
+读取字符使用read
+
 
 
 
