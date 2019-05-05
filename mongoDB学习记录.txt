@@ -1,1 +1,58 @@
-mongoDB
+mongoDB基本命令：
+
+db.help();		查看命令提示
+use db_name;	存在则切换，不存在则创建
+mongo db_name;	切换数据库
+db.getName();	查看当前数据库
+db;				查看当前数据库
+
+集合操作：
+
+db.createCollection("collection_name");		创建集合
+db.collection_name.drop();					删除集合
+db.createCollection("name",{size:20,capped:true,max:100});		capped:是否启用集合限制
+																size:限定集合使用空间大小
+																max: 集合最大条数
+																autoIndexId:是否使用_id作为索引
+show collections;		显示当前数据库中的集合
+db.getCollectionNames();	同上
+db.collection_name;		使用集合
+db.getCollection("name");	同上
+db.collection_name.help();	查看集合命令帮助文档
+
+文档操作：
+user是集合名
+db.user.insert({"name":"joe"});		写入文档
+db.user.save({"name":"joe"});		同上
+db.user.find();						查看文档
+
+update():
+	db.collection.update(
+		查询条件，
+		修改器,
+		upsert:boolean,			true表示文档不存在则创建文档
+		multi:boolean,			true表示如果查询到多条记录，更新多条记录
+		writeConcern:			异常信息等级，这里就不一一列出
+	)
+	eg:
+	db.user.update(
+		{"name":"joe"},
+		{$set:{"age":20,"company":"google"}}
+		true,
+		{multi:true},
+		WriteConcern.SAFE
+	)
+	
+remove();
+	db.collection.remove(
+		查询条件,
+		justOne:boolean			true,查询到多条结果只删除一个文档
+		writeConcern:			异常信息，可选。
+	)
+	eg：
+	db.user.remove(
+		{"name":"joe"},
+		true
+	)
+	
+	
