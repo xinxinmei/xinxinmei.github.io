@@ -1,0 +1,45 @@
+spring框架组成：
+	核心容器：提供核心功能
+	spring content：向框架提供上下文信息
+	spring AOP:
+	spring DAO:
+	spring ORM: 对于orm框架的支持
+	spring web：提供处理参数请求
+	spring mvc：
+	###########################################
+		AOP		#	ORM		#	WEB		#	MVC
+				#########################
+				#	DAO		#	CONTEN	#
+	###########################################
+					CORE
+	###########################################
+	
+IOC控制反转：
+	实现必须依赖抽象，而不是抽象依赖实现
+DI依赖注入：让组件依赖于抽象，当组件要与其他实际对象发生依赖关系时，通过抽象来注入依赖的实际对象
+
+个人理解：当实现一个业务逻辑时，如果对象发生变化，那么相对应的业务代码也应改变。问题所在就是在编写相应的操作类时，直接将对象类型定死。如果通过实现定义操作接口编写相应类型的操作类。在后续的业务代码中，只需传入相应的类型对象即可。提高了代码的利用率（因为相应的类型都实现了操作接口所以可以定义接口变量，赋值相应对象）。从中看到了泛型和继承，这也表明实现依赖于抽象（不确定的对象类型），增大范围；不确定性是关键。
+
+bean的生命周期：定义，初始化，使用，销毁
+bean是描述java软件组件的模型
+
+AOP：aspect oriented programming 面向方面编程，他是开发人员可以更好的将本不该批次湛河在一起的功能分开。
+AOP的3个关键概念：
+	point cut ：指定需要注入advice的位置集合
+	advice：某连接点所采用的处理逻辑
+	advisor： point cut和advice的配置器
+
+事务处理：原子性、一致性、隔离性、持久性
+
+mvc模式：
+			view
+		model	controller
+	jsp实现view;javabean实现model；servlet实现controller
+	
+	传统mvc：browser发送请求，servlet过滤请求，交给javabean处理，javabean操作database，database将数据传输给servlet，servlet再将数据交给jsp，同时与javabean交互信息
+	
+	spring的mvc：
+	client browser 发送request ，controller servlet接受request建立一个实例交割model，
+	model再将结果传输给view jsp，view更新数据发送response
+	
+	
