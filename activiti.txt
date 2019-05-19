@@ -1,0 +1,24 @@
+Activiti：
+	业务流程由多个环节串联起来并且每个环节被赋予任务，而每个任务又可分为多个活动
+	
+BPM(business process management)业务流程管理是一套达成企业各种业务环节整合的全面管理模式
+SOA(service oriented architecture)面向服务系统架构
+EAI(enterprise application integration)企业应用集成
+ESB(entrprise seerice bus)企业服务总线
+
+work-flow生命周期：定义，发布，执行，监控，优化
+
+activiti特点：
+	数据持久化，引擎service接口，流程设计器，原生支持spring，分离运行时与历史数据
+
+activiti应用：
+1.在系统集成方面应用
+	mule,jboss drools ，嵌入已有平台
+2.在其他产品中使用
+
+activiti架构组件：
+		modeling		runtime			management
+activiti mmodeler						activiti explorer
+activiti designer	activiti engine 	activit rest
+activiti kickstart
+

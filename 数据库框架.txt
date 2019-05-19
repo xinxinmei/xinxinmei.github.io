@@ -1,0 +1,13 @@
+mybatis
+ORM模型就是数据库的表和简单的java对象（plain oridnary java object ,POJO）的映射关系模型，主要解决数据库数据
+和POJO对象的相互映射。
+	java程序通过映射配置与数据库交互
+
+hibernate
+是建立在若干pojo通过xml映射文件提供的规则映射到数据库表上
+
+个人见解：hibernate对jdbc进行高度封装，高度封装给使用者带来了极大的便利，甚至无需使用sql，采用全表映射大大减少了jdbc所带来的大量代码。但是同时也带来了很多缺点：灵活性差，无法对sql优化，查询性能差
+
+jdbc使用：连接，注册驱动，打开statement对象，执行sql语句返回resultset ，resutlset读取，关闭资源。
+
+mybatis：提供pojo，sql和映射关系配置比起hibernate增加了sql配置，具有更好的灵活性，同时还支持配置动态sql
