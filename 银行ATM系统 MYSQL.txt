@@ -1,0 +1,76 @@
+## 需求分析略
+## 概要分析
+### 分析实体
+* 存款业务类型
+   活期、定期
+   属性：业务编号、业务类型
+* 客户
+   属性：姓名、身份证号、电话、地址
+* 卡账户
+   属性：卡号、密码、业务类型、开户日期、余额、状态
+* 交易记录
+   属性：卡号、交易日期、交易金额、交易类型、备注
+* 对应关系
+   一个客户可以开通多个账户，一个账户有多条交易记录，一个账户只有一种业务类型
+
+### 详细设计
+* 建表
+
+* business表
+  num，int类型
+  type，char(10)
+
+* customer 表  
+   name ,char(10)
+id,int
+tell,int
+addr,char(10)
+
+* card表
+  num,int
+pass,int
+type,char(10)
+day,datetime
+balance,int
+status,int
+加入coustomer表的id作为外键
+
+* record表
+num,int
+day,datetime
+money,int
+type,int
+mark,char(10)
+
+```sql
+create table business(
+num int primary key,
+type char(10)
+);
+create table customer(
+name char(10),
+id int,
+tell int,
+addr char(10),
+primary key(id)
+);
+create table card(
+num int,
+type char(10),
+day datetime,
+balance int,
+status int,
+id int,
+primary key(num),
+foreign key(id) references customer(id)
+);
+create table record(
+num int,
+day datetime,
+money int ,
+type int,
+mark char(10),
+primary key(num)
+);
+
+```
