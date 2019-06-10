@@ -261,15 +261,47 @@ RIP: build update entries
 ###############################################################################
 07OSPF路由协议配置
 ###############################################################################
+Router(config)#router ospf 100				设置ospf路由进程的id
+Router(config-router)#network 192.168.1.0 255.255.255.0 area 0			通告网络及网络所在区
+Router(config-router)#network 192.168.3.0 255.255.255.0 area 0
+Router(config-router)#network 192.168.4.0 255.255.255.0 area 0
+Router(config-router)#end
 
-
+配置默认路由：defualt-information originate
 
 ###############################################################################
 08NAT配置
 ###############################################################################
 
+配置静态nat
+Router(config)#ip route 0.0.0.0 0.0.0.0 221.221.0.2
+Router(config)#int f0/0
+Router(config-if)#ip nat inside			内网启用nat
+Router(config-if)#exi
+Router(config)#int serial0/0/0
+Router(config-if)#ip nat outside		外网启用nat
+Router(config-if)#exit
+Router(config)#ip nat inside source static 192.168.0.3 15.15.15.15		设置静态转换
+Router(config)#exit
+Router#show ip nat statistics
+Router#show ip nat translations
 
-
+动态nat
+Router#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#access-list 10 permit 192.168.0.0 255.255.255.0
+Router(config)#ip nat pool to_internet 15.15.15.0 15.15.15.25 nemask 255.255.255.0
+                                                                ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#ip nat pool to_internet 15.15.15.0 15.15.15.25 ne5mask 255.255.255.0
+                                                                ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#ip nat pool to_internet 15.15.15.0 15.15.15.25 netmask 255.255.255.0
+Router(config)#ip nat inside source list 10 pool to_internet overload
+Router(config)#
 ###############################################################################
 09ACL配置
 ###############################################################################
