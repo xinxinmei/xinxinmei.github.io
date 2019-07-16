@@ -1,0 +1,11 @@
+webcontent
+	WEB-INF
+		web.xml
+		lib
+		classess
+		tags
+	jsp
+	js
+	css
+	image
+	index.jsp

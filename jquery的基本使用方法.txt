@@ -1,0 +1,106 @@
+##jquery的语法：
+	jquery通过选取html元素，并对元素进行操作。
+	$(selector).action()
+	eg:
+		$(this).hide()//隐藏当前元素
+		$("p").hide(),$("p.test").hide()//class="test"的p,$("#test").hide()//id
+	
+$(document).ready(function(){
+ 
+   // 开始写 jQuery 代码...
+ 
+});
+
+$(function(){
+ 
+   // 开始写 jQuery 代码...
+ 
+});
+两者都表示加载完dom后在允许jquery代码。
+
+##jquery的selector：
+	基于元素的id，class，属性，属性值
+	
+##jquery的事件；
+	click 	keypress 	submit 	load
+dblclick 	keydown 	change 	resize
+mouseenter 	keyup 		focus 	scroll
+mouseleave 	  			blur 	unload
+hover
+
+##jquery获取内容：
+	text(),html(),val(),attr()
+	这些函数都有回调函数，和设置相应的值
+
+##jquery添加元素
+	
+    append() - 在被选元素的结尾插入内容
+    prepend() - 在被选元素的开头插入内容
+    after() - 在被选元素之后插入内容
+    before() - 在被选元素之前插入内容
+	append在元素内部潜入，after在元素外部嵌入
+	
+##jquery删除元素
+	
+    remove() - 删除被选元素（及其子元素）
+    empty() - 从被选元素中删除子元素
+##jquery获取并设置css类
+	
+    addClass() - 向被选元素添加一个或多个类
+    removeClass() - 从被选元素删除一个或多个类
+    toggleClass() - 对被选元素进行添加/删除类的切换操作
+    css() - 设置或返回样式属性
+
+##jquery遍历
+	
+    parent()//只会返回上一级
+    parents()//返回所有的上级
+    parentsUntil()//返回给定的两个元素之间的所有祖先元素。
+	
+	
+    children()//返回下一级
+    find()//返回所有下级
+	
+	
+    siblings()//所有同胞
+    next()//下一个同胞
+    nextAll()//
+    nextUntil()
+    prev()
+    prevAll()
+    prevUntil()
+	
+##jquery   ajax简介
+	
+$("button").click(function(){
+  $("#div1").load("demo_test.txt",function(responseTxt,statusTxt,xhr){
+    if(statusTxt=="success")
+      alert("外部内容加载成功!");
+    if(statusTxt=="error")
+      alert("Error: "+xhr.status+": "+xhr.statusText);
+  });
+});
+
+
+
+$("button").click(function(){
+  $.get("demo_test.php",function(data,status){
+    alert("数据: " + data + "\n状态: " + status);
+  });
+});
+
+
+
+$("button").click(function(){
+    $.post("/try/ajax/demo_test_post.php",
+    {
+        name:"菜鸟教程",
+        url:"http://www.runoob.com"
+    },
+        function(data,status){
+        alert("数据: \n" + data + "\n状态: " + status);
+    });
+});
+
+
+

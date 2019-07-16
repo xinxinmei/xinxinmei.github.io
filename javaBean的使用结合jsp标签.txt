@@ -1,0 +1,25 @@
+jsp中导入包：<%@ page import="路径"%>
+
+操作javabean的jsp标签有三种：
+	<jsp:useBean id=""	scope="" class=""/>
+		id:实例化对象名称
+		scope:实例化对象的保存范围
+		class：包和类的路径
+	<jsp:setProperty name="" property="" param="" />
+	<jsp:setProperty name="" property="" value="" />
+		name：即是实例化对象的名称
+		property:属性，当为*号时，提交的表单的name属性对应的值和类中属性名一样，则自动赋值
+		param：参数，当为单个属性时，param的值代表表单中name所对应的值，赋值给property
+		value：值，直接个property属性赋值
+		property="*" 最为方便（注意表单的name属性值必须和类中对应）
+			
+	<jsp:getProperty name="" property=""/>
+		直接显示property属性对应的值
+
+scope保存范围：
+	page,request,session,application
+删除javabean：
+	pageContext.removeAttribute(""）
+	session.removeAttribute("")
+	request.removeAttribute("")
+	application.removeAttribute("")

@@ -1,0 +1,10 @@
+由于不想使用ajax来请求数据，在后端处理的结果如何传送到前端，是个问题。可以在后端设置跳转页面来实现功能。缺点是需要编写相应的
+success和error页面。
+较为懒惰的方法是response.getWriter().append("success")直接在页面打印，随之的问题就是打印完后如何跳转到初始页面。
+在这里有几个坑：使用request.getRequestDispatcher("/page/password-change.html").forward(request, response);服务器内部转发
+会导致打印的页面不显示。
+response.sendRedirect("url")也同样不显示打印的内容。
+使用response.setHeader("refresh","3;url=url");可以实现显示打印内容后跳转
+
+总结：前面两种方式是转发和重定向，之前的不能进行页面打印输出，刷新可以。
+	
