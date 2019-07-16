@@ -1,0 +1,15 @@
+jquery的ajax方法与数据库进行交互：
+	通常有三种方法：$.ajax(),$.get(),$.post();
+	$.ajax({
+		url:	,
+		type:	,
+		dataType:	,
+		success:function(){},
+		error:function(){}
+		
+	});
+	还有很多参数，这几个比较常见
+	
+	
+	$.get(url,callback	);
+	$.post(url,data,callback);//function中的data形参是页面内容，服务器可以返回一个json文件

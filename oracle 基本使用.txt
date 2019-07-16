@@ -1,0 +1,34 @@
+打开cmd命令窗口——输入sqlplus——输入用户名——输入口令
+
+sys超级用户：拥有create database
+system系统用户：没用create database
+一般情况下system权限已经够了
+
+connect system/oracle@orcl
+showu  user
+
+disconnect
+
+password
+
+connect system
+
+start dir
+@ dir
+
+spool dir
+select * form emp;
+spool off   			//将结果输出到指定文件中
+
+set show
+
+show linesize
+set linesize 90 //设置显示的一行显示的宽度
+pagesize			//设置每页显示的行数
+
+create user xiaoming identified by oracle;
+alter suer xiaomming identified by password;
+drop user xiaoming	[cascade]
+
+grant select on scott.emp to xiaoming
+revoke select on soctt.emp from xiaoming

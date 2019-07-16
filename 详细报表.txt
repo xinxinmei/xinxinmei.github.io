@@ -1,0 +1,312 @@
+--------[ 鲁大师 ]--------------------------------------------------------------------------------
+
+  软件:             鲁大师 5.15.18.1010
+  时间:             2019-04-25 12:24:40
+  网站:             http://www.ludashi.com
+
+--------[ 概览 ]----------------------------------------------------------------------------------
+
+  电脑型号            联想 Lenovo IdeaPad Y470 笔记本电脑
+  操作系统            Windows 10 专业版 64位 ( DirectX 12 )
+
+  处理器              英特尔 第二代酷睿 i5-2450M @ 2.50GHz 双核
+  主板                联想  ( 英特尔 HM65 芯片组 )
+  显卡                AMD Radeon HD 7690M ( 2 GB / 联想 )
+  内存                4 GB ( 海力士 DDR3 1333MHz )
+  主硬盘               Lenovo SSD SL700 MSATA 64G ( 64 GB / 固态硬盘 )
+  显示器              三星 SEC414C ( 14 英寸  )
+  光驱                PLDS DVD-RW DS8A8SH DVD刻录机
+  声卡                瑞昱 ALC272 @ 英特尔 6 Series Chipset  高保真音频
+  网卡                博通 NetLink BCM57781 Gigabit Ethernet / 联想
+
+--------[ 主板 ]----------------------------------------------------------------------------------
+
+  主板型号            联想
+  芯片组              英特尔 HM65 芯片组
+  序列号              CB14826758
+  主板版本            Base Board Version
+  BIOS版本            联想 59CN18WW(V2.03)  /  BIOS程序发布日期: 2012年02月14日
+  BIOS的大小          2560 KB
+
+
+--------[ 处理器 ]--------------------------------------------------------------------------------
+
+  处理器              英特尔 第二代酷睿 i5-2450M @ 2.50GHz 双核
+  步进                D2
+  速度                2.50 GHz (100 MHz x 25.0)
+  处理器数量          核心数: 2 / 线程数: 4
+  核心代号            Sandy Bridge NB
+  生产工艺            32 纳米
+  插槽/插座           Socket G2 (PGA 988 / BGA 1023)
+  一级数据缓存        2 x 32 KB, 8-Way, 64 byte lines
+  一级代码缓存        2 x 32 KB, 8-Way, 64 byte lines
+  二级缓存            2 x 256 KB, 8-Way, 64 byte lines
+  三级缓存            3 MB, 12-Way, 64 byte lines
+  特征                MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, HTT, EM64T, EIST, Turbo Boost
+
+--------[ 硬盘 ]----------------------------------------------------------------------------------
+
+  产品                Lenovo SSD SL700 MSATA 64G (固态硬盘)
+  大小                64 GB
+  硬盘已使用          共 1146 次
+  固件                P0921A  
+  接口                SATA III
+  数据传输率          600 MB/秒
+  特征                S.M.A.R.T,  APM,  48-bit LBA,  NCQ
+
+  产品                西数 WDC WD3200BPVT-22JJ5T0 (蓝盘)
+  大小                320 GB
+  转速                5400 转/分
+  缓存                8 MB
+  硬盘已使用          共 1487 次，累计 2892 小时
+  固件                01.01A01
+  接口                SATA II
+  数据传输率          300.00 MB/秒
+  特征                S.M.A.R.T,  APM,  48-bit LBA,  NCQ
+
+--------[ 内存 ]----------------------------------------------------------------------------------
+
+  ChannelA-DIMM0      海力士 DDR3 1333MHz 4GB
+  制造日期            2012 年 02月
+  型号                AD HMT351S6BFR8C-H9
+  序列号              0972AA85
+  厂商                Hynix
+  模块位宽:           64 Bits
+  模块电压:           SSTL 1.5V
+
+--------[ 显卡 ]----------------------------------------------------------------------------------
+
+  显卡                英特尔 HD Graphics 3000
+  显存                2 GB
+  制造商              联想
+  制造商              Intel
+  BIOS日期            06/16/20 (非显卡制造日期)
+  驱动版本            9.17.10.4459
+  驱动日期            2016年05月19日
+
+  主显卡              AMD Radeon HD 7690M
+  显存                2 GB
+  频率                核心: 725MHz / 显存: 900MHz
+  制造商              联想
+  制造商              AMD
+  BIOS日期            06/16/20 (非显卡制造日期)
+  驱动版本            15.201.1151.1008
+  驱动日期            2015年10月01日
+
+--------[ 显示器 ]--------------------------------------------------------------------------------
+
+  产品                三星 SEC414C
+  厂商                三星
+  固件程序日期        2010 年 (非显示器制造日期)
+  屏幕尺寸            14 英寸 (31 厘米 x 17 厘米)
+  显示比例            宽屏 16 : 9
+  分辨率              1366 x 768 32 位真彩色
+  Gamma               2.20
+  电源管理            Standby, Suspend, Active-Off
+  最大分辨率          1366 x 768
+
+--------[ 其他设备 ]------------------------------------------------------------------------------
+
+  产品                PLDS DVD-RW DS8A8SH DVD刻录机
+  缓存/固件:          1024 KB /KL31
+
+  网卡                博通 NetLink BCM57781 Gigabit Ethernet
+  制造商              联想
+
+  无线网卡            英特尔 Centrino Wireless-N 1000 BGN
+
+  声卡                瑞昱 ALC272 @ 英特尔 6 Series Chipset  高保真音频
+
+  键盘                PS/2 标准键盘
+  鼠标                Synaptics SMBus 触摸板
+
+
+--------[ PCI设备 ]-------------------------------------------------------------------------------
+
+  设备                2nd Generation Core Processor DRAM Controller
+  设备ID              0104
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to HOST
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                2nd Generation Core Processor PCI Express Controller
+  设备ID              0101
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI
+  子系统ID            00000000
+
+  设备                HD Graphics 3000
+  设备ID              0126
+  制造商              Intel
+  制造商ID            8086
+  类别                Display / VGA
+  子系统制造商        Lenovo
+  子系统ID            398217AA
+
+  设备                6 Series/C200 Series Management Engine Interface
+  设备ID              1C3A
+  制造商              Intel
+  制造商ID            8086
+  类别                Simple Communication / Other
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                6 Series/C200 Series Chipset USB Enhanced Host Controller
+  设备ID              1C2D
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB 2.0 (EHCI)
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                6 Series Chipset HD Audio Controller
+  设备ID              1C20
+  制造商              Intel
+  制造商ID            8086
+  类别                Multimedia / Hi-definition Audio
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                6 Series/C200 Series Chipset PCI Express Root Port 1
+  设备ID              1C10
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI
+  子系统ID            00000000
+
+  设备                6 Series/C200 Series Chipset PCI Express Root Port 2
+  设备ID              1C12
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI
+  子系统ID            00000000
+
+  设备                6 Series/C200 Series Chipset PCI Express Root Port 5
+  设备ID              1C18
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI
+  子系统ID            00000000
+
+  设备                6 Series/C200 Series Chipset USB Enhanced Host Controller
+  设备ID              1C26
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB 2.0 (EHCI)
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                HM65 Express Chipset LPC Interface Controller
+  设备ID              1C49
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to ISA
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                6 Series/C200 Series Chipset 6 Port SATA AHCI Controller
+  设备ID              1C03
+  制造商              Intel
+  制造商ID            8086
+  类别                Storage / Serial ATA (AHCI 1.0)
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                6 Series/C200 Series Chipset SMBus Controller
+  设备ID              1C22
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / SMBus Controller
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                6 Series/C200 Series Chipset Thermal Control
+  设备ID              1C24
+  制造商              Intel
+  制造商ID            8086
+  类别                Data Aquisition & Signal Processing / Other
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                Radeon HD 7690M (Thames XT)
+  设备ID              6843
+  制造商              AMD
+  制造商ID            1002
+  类别                Display / VGA
+  子系统制造商        Lenovo
+  子系统ID            398217AA
+
+  设备                NetLink BCM57781 Gigabit Ethernet
+  设备ID              16B1
+  制造商              Broadcom
+  制造商ID            14E4
+  类别                Network / Ethernet
+  子系统制造商        Lenovo
+  子系统ID            397517AA
+
+  设备                Centrino Wireless-N 1000 BGN
+  设备ID              0084
+  制造商              Intel
+  制造商ID            8086
+  类别                Network / Other
+  子系统制造商        Intel
+  子系统ID            13158086
+
+  设备                SD/MMC Host Controller
+  设备ID              2392
+  制造商              JMicron
+  制造商ID            197B
+  类别                System / Other
+  子系统制造商        Lenovo
+  子系统ID            397617AA
+
+  设备                Standard SD Host Controller
+  设备ID              2391
+  制造商              JMicron
+  制造商ID            197B
+  类别                System / SD Host Controller (With DMA)
+  子系统制造商        Lenovo
+  子系统ID            397617AA
+
+  设备                MS Host Controller
+  设备ID              2393
+  制造商              JMicron
+  制造商ID            197B
+  类别                System / Other
+  子系统制造商        Lenovo
+  子系统ID            397617AA
+
+  设备                xD Host Controller
+  设备ID              2394
+  制造商              JMicron
+  制造商ID            197B
+  类别                System / Other
+  子系统制造商        Lenovo
+  子系统ID            397617AA
+
+--------[ USB设备 ]-------------------------------------------------------------------------------
+
+  制造商ID            0489
+  产品ID              E00D
+  类别                224 / 1 / 1
+  设备                 
+  版本                USB 2.0
+
+  制造商ID            5986
+  产品ID              A006
+  类别                239 / 2 / 1
+  设备                 
+  版本                USB 2.0
+
+--------[ 传感器 ]--------------------------------------------------------------------------------
+
+  CPU温度             55℃
+  CPU核心             55℃
+  CPU封装             55℃
+  PCH                 57℃
+  显卡                48℃
+  硬盘温度            45℃
+

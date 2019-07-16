@@ -1,0 +1,4 @@
+ajax：全称为asynchronous JavaScript and xml，原理是利用浏览器里的xmlhttprequest组件与服务器进行数据交换。
+xmlhttprequest组件是浏览器的一个接口，使得js能够与server交互。
+ajax的使用：1.可以声明 var xhr = new XMLHttpRequest();一个xmlhttprequest对象，该对象有相应的方法来与server进行交互。
+	2.可以使用jquery框架来使用ajax，优点是jquery封装了相关操作，使得交互的过程更为简单。
