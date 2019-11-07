@@ -1,0 +1,5 @@
+error: Attempt to invoke virtual method 'android.view.Window$Callback android.view.Window.getCallback()' on a null object reference
+findViewById(R.id.toolbar)不能在
+setContentView(R.layout.activity_main)的前面。
+
+android的控件是线程不安全，只能在主线程中操作。

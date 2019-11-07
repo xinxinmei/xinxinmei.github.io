@@ -1,0 +1,21 @@
+服务器无法启动：
+netstat -ano | findstr 8081	//得到pid
+taskkill /f /pid 3443		//3443 是pid
+
+浏览器显示url：
+注意跳转和重定向的问题（redirect）
+
+代码中url写法：
+java的controller中“/index"即与当前项目目录下的index（理解为兄弟）；
+html，jsp中的”/index“则是网站根目录的兄弟（就是与webcontent同级）；
+总结在html，jsp中”index”代表着当前兄弟，如果带有“/”则是根目录的兄弟。
+
+post和get提交的表单获取：
+需要配置相关文件，才能获取到post提交的数据。
+
+tomcat命令启动问题：
+无法启动，端口占用
+窗口闪退，（加pause）观察错误信息，JAVA_HOME没有配置
+命令窗口乱码，修改loging.properties 的encoding=gbk
+
+
