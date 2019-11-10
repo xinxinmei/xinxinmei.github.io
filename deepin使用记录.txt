@@ -1,0 +1,15 @@
+添加程序到启动器：
+
+[Desktop Entry]
+
+Type=Application
+
+Name=eclipse
+
+Icon=/home/mei/java_develop/eclipse/icon.xpm
+
+Exec=/home/mei/java_develop/eclipse/eclipse
+
+Terminal=false
+
+Categories=Development;eclipse;

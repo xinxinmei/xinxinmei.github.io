@@ -1,0 +1,41 @@
+复制粘贴操作
+y:复制
+p:粘贴
+系统剪切板：
+“+y:复制
+"+p：粘贴      注意”也是命令，这些需要在非编辑模式下完成。
+
+安装bundle：
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim 配置文件
+syntax enable
+syntax on
+set number
+
+set autoindent 
+set smartindent
+set ruler
+set incsearch
+set hlsearch
+set spell
+set autowrite
+set tabstop=4
+set encoding=utf-8
+
+
+
+set nocompatible
+filetype on
+filetype plugin on
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'VudleVim/Vundle.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'jiazhoulvke/MarkdownView'
+
+call vundle#end()
+filetype on

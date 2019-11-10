@@ -1,0 +1,21 @@
+网速只有100k
+	百度查到修改：etc/modprobe.d/iwlwifi.conf
+	将11n_disable=0修改为8
+	
+修改是针对于蓝牙开启的状态下，wifi速度过慢的情况。
+注意：蓝牙默认是开启的，记得关闭蓝牙。
+
+
+/etc/NetworkManager/NetworkManager.conf         
+/etc/default/dnsmasq            IGNORE_RESOLVCONF=yes
+/etc/ppp/ppers/dsl-provider        
+/etc/dhcp/dhclient.conf     
+
+
+下载最新的包apt-get install firmware-iwlwifi
+modprobe -r iwlwifi 
+modprobe iwlwifi
+rmmod -f iwlwifi
+
+
+重新安装了firmware-iwlwifi模块后，网速得到恢复

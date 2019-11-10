@@ -1,0 +1,1 @@
+步骤和windows下类似，注意事项：将解压的文件需要放到/usr/lcoal中，并且将文件夹名改为mysql，export PATH=/usr/local/mysql/bin:$PATH添加环境变量修改文件夹的权限：chmod 777 data初始化：mysqld --initialize查看服务service --status-all添加服务cp /usr/local/mysql/support*/mysql.server /etc/init.d/mysql*可以使用ln -s在usr/local/bin中建立软连接，就可不用配置path*

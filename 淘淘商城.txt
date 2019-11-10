@@ -1,0 +1,25 @@
+### maven工程建立：
+    pom父工程jar版本控制，不实现依赖。
+    工程之间建立依赖关系。
+
+###框架搭建：   
+使用mybatis genetrator 逆向工程中，路径由于是linux环境所以要将xml中的“.\"换成"./"，不然无法生成代码。注意以后在遇到了路径，需要考虑 linux和windows的区别。
+    将配置文件放在war中，也可以放在jar中（加载jar包中的xml有点麻烦）
+
+spring父容器（ContextLoaderListener 初始化）----》spring子容器（DispatcherServlet初始化）。
+    子容器可以访问父容器，反过来咋不行。
+    父容器初始化dao和service；子容器初始化controller；（分离思想，服务层和表现层。扩展性）
+
+dubbo：分布式管理。
+    架构演变：tomcat集群（水平式的tomcat的session广播共享遏制了性能，十台）-----垂直式：模块化mvc每个模块单独配置-------服务层和表现层分离，远程通信--------服务管理（dubbo）
+
+dubbo架构：
+    发布服务----注册中心------消费者（从注册中心得到ip和port）------服务端
+    监控中心监控服务调用过程。
+排除重复的jar包，避免冲突exclusion
+
+easyUi前端框架
+pagehelper分页插件：
+    配置插件，申明数据库类型。
+    代码中使用pagehelper的static方法startPage设置条件。
+       

@@ -1,0 +1,6 @@
+查找文件并复制到文件夹
+find . -name *.doc -exec cp {} /home/mei/arduino \;
+批量修改文件名字：
+for name in ls *.doc ; do mv “$name” ${name##*};done ;
+注意文件名中含有空格时执行mv会出错，使用双引号可以避免。（问题出在IFS分隔符）
+
