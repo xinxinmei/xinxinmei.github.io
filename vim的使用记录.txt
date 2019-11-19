@@ -39,3 +39,8 @@ Plugin 'jiazhoulvke/MarkdownView'
 
 call vundle#end()
 filetype on
+
+
+vim的脚本语言
+	normal aa 代表在正常模式下输入aa
+
